@@ -48,14 +48,23 @@ export default class SettingsScreen extends React.Component {
   state = {
     value: false,
     fontLoaded: false,
-    slideValue: 0
+    slideValue: 0,
+    name: "",
+    email: ""
   };
 
   async componentDidMount() {
     await Font.loadAsync({
       "Butler-Light": require("../assets/fonts/Butler_Light.otf")
     });
-
+    if (await AsyncStorage.getItem("userToken") == "caregiver")
+    {
+      this.setState({name:"Ariel", email:"ariel@gmail.com"});
+    }
+    else 
+    {
+      this.setState({name:"Beatrice", email:"beatrice@gmail.com"});
+    }
     this.setState({ fontLoaded: true });
   }
 
@@ -87,12 +96,12 @@ export default class SettingsScreen extends React.Component {
           <ViewText style={{ marginTop: 0 }}>
             <Name>Name</Name>
             <TextName>
-              Get user name from backend based on userToken value
+              {this.state.name}
             </TextName>
           </ViewText>
           <ViewText>
             <Name>Email</Name>
-            <TextName>Same for email</TextName>
+            <TextName>{this.state.email}</TextName>
           </ViewText>
           <ViewText>
             <Name>Password</Name>
