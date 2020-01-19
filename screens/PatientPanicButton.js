@@ -8,6 +8,7 @@ import {
   Alert
 } from "react-native";
 import * as Font from "expo-font";
+import axios from "axios";
 
 class PatientPanicButton extends Component {
   static navigationOptions = {
@@ -31,6 +32,28 @@ class PatientPanicButton extends Component {
   twilioCall = () => {
     Alert.alert("Your Caregiver has been alerted. Stay where you are.");
     //make axios call here.
+
+    axios.post('http://100.64.227.20:3000/api/text', {number:6479952837, location:"University of Toronto"}).then(function (response) {
+      console.log(response.data);
+      console.log(response.status);
+    })  .catch(function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    });
   };
 
   render() {
