@@ -86,33 +86,18 @@ export default class SettingsScreen extends React.Component {
         <NameContainer>
           <ViewText style={{ marginTop: 0 }}>
             <Name>Name</Name>
-            <TextName>Jacob Tremblay</TextName>
+            <TextName>
+              Get user name from backend based on userToken value
+            </TextName>
           </ViewText>
           <ViewText>
             <Name>Email</Name>
-            <TextName>Jacob.T22@hotmail.com</TextName>
+            <TextName>Same for email</TextName>
           </ViewText>
           <ViewText>
             <Name>Password</Name>
             <TextName>***************</TextName>
           </ViewText>
-          {/* <ViewText>
-            <Align>
-              <Name>Limit Monthly Transactions</Name>
-              <Text style={{ marginRight: 40, color: "#ffd36f", fontSize: 18 }}>
-                {this.state.slideValue}
-              </Text>
-            </Align>
-            <Slider
-              style={{ width: "85%" }}
-              value={this.state.slideValue}
-              step={1}
-              maximumValue={100}
-              thumbTintColor="#ffd36f"
-              minimumTrackTintColor="#ffd36f"
-              onValueChange={slideValue => this.setState({ slideValue })}
-            />
-          </ViewText> */}
         </NameContainer>
         <AlertsContainer>
           <TextName style={{ paddingTop: 0 }}>Email Notifications</TextName>
