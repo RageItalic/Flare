@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet, AsyncStorage} from 'react-native'
+import {AsyncStorage, Text, View} from 'react-native'
 
 class CaregiverEvents extends Component {
     state = {
         token: ""
-    }
+    };
 
     async componentDidMount() {
         this.setState({

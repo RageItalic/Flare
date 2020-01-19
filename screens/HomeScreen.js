@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, View, AsyncStorage, Text} from "react-native";
+import {AsyncStorage, Button, Text, View} from "react-native";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -7,9 +7,9 @@ export default class HomeScreen extends React.Component {
 
   };
 
-  state = {
-    token: ""
-  }
+    state = {
+        token: ""
+    };
 
   async componentDidMount()  {
     this.setState({

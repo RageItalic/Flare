@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Button, AsyncStorage} from "react-native";
+import {AsyncStorage, Button, View} from "react-native";
 
 
 export default class SignInScreen extends React.Component {
@@ -9,8 +9,8 @@ export default class SignInScreen extends React.Component {
 
     render() {
         return (
-            <View>
-                <Button title="Sign in as caregiver" onPress={this._signInCaregiver} />
+            <View style={{flex: 1, alignItems: 'center', justifyContent: "center"}}>
+                <Button title="Sign in as caregiver" onPress={this._signInCaregiver}/>
                 <Button title="Sign in as patient" onPress={this._signInPatient}/>
             </View>
         );
