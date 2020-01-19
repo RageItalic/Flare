@@ -55,7 +55,9 @@ class CaregiverHome extends Component {
                     />
                 </MapView>
                 </View>
-                <Text>random textwtf</Text>
+                <Text>{" "}</Text>
+                <Text style={{fontSize: 24}}>Beatrice's tasks</Text>
+                <Text style={{fontSize: 18}}>{'\u2B24'} Walk dog</Text>
             </View>
         )
     }
@@ -69,9 +71,11 @@ const styles = StyleSheet.create({
       //justifyContent: 'center',
     },
     poop: {
+      marginTop: 250,
       width: 350,
       height: 200,
       borderRadius: 25,
+
       overflow: "hidden",
       shadowColor: "#000",
       shadowOffset: {
