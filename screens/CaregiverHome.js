@@ -1,16 +1,24 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, AsyncStorage, Button, Dimensions} from 'react-native'
 
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 class CaregiverHome extends Component {
-      state = {
-        token: ""
-      }
-
+  state = {
+    token: "",
+    region: null,
+    location: null
+  }
     async componentDidMount() {
         this.setState({
-            token: await AsyncStorage.getItem("userToken")
+            token: await AsyncStorage.getItem("userToken"),
+            region: {
+              latitude: 43.66000,
+              longitude: -79.39502,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            },
+            
         })
     }
     _signOutAsync = async () => {
@@ -23,8 +31,14 @@ class CaregiverHome extends Component {
             <View style={styles.container}>
                 <Text>Hi caregiver, {this.state.token}</Text>
                 <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
-                <MapView style={styles.mapStyle} />
-                <Text>random text</Text>
+                <MapView style={styles.mapStyle} region={this.state.region}>
+                    <Marker
+                        coordinate= {{latitude: 43.66000, longitude: -79.39502,}}
+                        title={"Patient Location"}
+                        description={"Here is the Patient"}
+                    />
+                </MapView>
+                <Text>random textwtf</Text>
             </View>
         )
     }
