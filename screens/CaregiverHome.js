@@ -42,7 +42,8 @@ class CaregiverHome extends Component {
       if (this.state.loading) return <ActivityIndicator size="large" style={{flex:1, alignItems:"center", justifyContent:"center"}}/>
         return (
             <View style={styles.container}>
-                <Text>Hi caregiver, {this.state.location !== null && "oof"}</Text>
+                <Text style={{fontSize: 36, marginTop: 50}}>Hi Ariel,</Text>
+                <Text style={{fontSize: 18, marginTop: 20}}>Tracking Beatrice's location:</Text>
                 {/* <Button title="Actually, sign me out :)" onPress={this._signOutAsync} /> */}
                 <View style={styles.poop}>
                 <MapView style={styles.mapStyle} region={this.state.region}>
@@ -55,9 +56,20 @@ class CaregiverHome extends Component {
                     />
                 </MapView>
                 </View>
+                
                 <Text>{" "}</Text>
-                <Text style={{fontSize: 24}}>Beatrice's tasks</Text>
-                <Text style={{fontSize: 18}}>{'\u2B24'} Walk dog</Text>
+                <View style={{marginTop: 10}}>
+                  <Text style={{fontSize: 24}}>Beatrice's tasks</Text>
+
+                    <View style={{marginTop: 10}}>
+                    <Text style={{fontSize: 22}}>Right now:</Text>
+                    <Text style={{fontSize: 18}}>{'\u2B24'} Walk dog</Text>
+                    </View>
+                    <View style={{marginTop: 10}}>
+                    <Text style={{fontSize: 22}}>Up next:</Text>
+                    <Text style={{fontSize: 18}}>{'\u2B24'} Grocery shopping</Text>
+                    </View>
+                </View>
             </View>
         )
     }
@@ -71,7 +83,7 @@ const styles = StyleSheet.create({
       //justifyContent: 'center',
     },
     poop: {
-      marginTop: 250,
+      marginTop: 20,
       width: 350,
       height: 200,
       borderRadius: 25,
