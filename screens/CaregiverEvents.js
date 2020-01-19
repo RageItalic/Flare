@@ -1,5 +1,16 @@
 import React, {Component} from 'react'
-import {AsyncStorage, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {
+    AsyncStorage,
+    Button,
+    Modal,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
+} from 'react-native'
 import moment from 'moment';
 import {Ionicons} from '@expo/vector-icons'
 
@@ -11,6 +22,7 @@ class CaregiverEvents extends Component {
 
     state = {
         // token: "",
+        modalVisible: false,
         data: {
             "Monday": [
                 {
@@ -121,13 +133,43 @@ class CaregiverEvents extends Component {
     render() {
         return (
             <SafeAreaView>
+                <Modal visible={this.state.modalVisible} animationType="slide">
+
+                    <View style={{flex: 1, alignItems: 'center', marginTop: 80}}>
+
+                        <Text>Create Event</Text>
+                        <TextInput
+                            placeholder="Event Title"
+                            style={{width: '80%', borderBottomColor: 'black', borderBottomWidth: 1, padding: 10, marginVertical: 15}}
+                            //add and set onchangetext and value props
+                        />
+                        <TextInput
+                            placeholder="Location"
+                            style={{width: '80%', borderBottomColor: 'black', borderBottomWidth: 1, padding: 10, marginVertical: 15}}
+                            //add and set onchangetext and value props
+                        />
+                        <TextInput
+                            placeholder="Start Time"
+                            style={{width: '80%', borderBottomColor: 'black', borderBottomWidth: 1, padding: 10, marginVertical: 15}}
+                            //add and set onchangetext and value props
+                        />
+                        <TextInput
+                            placeholder="End Time"
+                            style={{width: '80%', borderBottomColor: 'black', borderBottomWidth: 1, padding: 10, marginVertical: 15}}
+                            //add and set onchangetext and value props
+                        />
+                        <View style={{flexDirection: "row", justifyContent: 'space-between'}}>
+                            <Button title="Cancel"  color="red" onPress={() => this.setState({modalVisible: false})}/>
+                            <Button title="Add" onPress={() => /*update state here*/ this.setState({modalVisible: false})} />
+                        </View>
+                    </View>
+                </Modal>
                 <ScrollView style={{height: '100%'}}>
                     <View style={{flex: 1, justifyContent: 'center', marginTop: 30}}>
                         <Text style={{fontSize: 20, fontWeight: 'bold', marginLeft: 20}}>Monday</Text>
                         <ScrollView style={{flexDirection: 'row'}} horizontal={true}
                                     showsHorizontalScrollIndicator={false}>
-                            <TouchableOpacity onPress={() => {/*modal pop up*/
-                            }}>
+                            <TouchableOpacity onPress={() => this.setState({modalVisible: true})}>
                                 <View style={{
                                     marginLeft: 20,
                                     marginTop: 20,
