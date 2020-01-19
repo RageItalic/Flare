@@ -29,7 +29,7 @@ class PatientPanicButton extends Component {
   }
 
   twilioCall = () => {
-    Alert.alert("Triggered");
+    Alert.alert("Your Caregiver has been alerted. Stay where you are.");
     //make axios call here.
   };
 

@@ -40,7 +40,8 @@ import {
   Switch,
   Image,
   Slider,
-  Text
+  Text,
+  AsyncStorage
 } from "react-native";
 import * as Font from "expo-font";
 export default class SettingsScreen extends React.Component {
@@ -63,6 +64,11 @@ export default class SettingsScreen extends React.Component {
     this.setState({ value: value });
     //state changes according to switch
     //which will result in re-render the text
+  };
+
+  _signOutAsync = async () => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate("Auth");
   };
 
   render() {
@@ -131,7 +137,7 @@ export default class SettingsScreen extends React.Component {
               justifyContent: "center",
               marginTop: 30
             }}
-            onPress={() => this.props.navigation.push("LogIn")}
+            onPress={() => this._signOutAsync()}
           >
             <BtnText>Log Out</BtnText>
           </TouchableOpacity>
@@ -148,7 +154,7 @@ const Container = styled.View`
   margin-left: 40px;
 `;
 const TitleBar = styled.View`
-  margin-top: 50px;
+  margin-top: 100px;
 `;
 const Title = styled.Text`
   font-size: 40px;
