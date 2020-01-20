@@ -33,27 +33,33 @@ class PatientPanicButton extends Component {
     Alert.alert("Your Caregiver has been alerted. Stay where you are.");
     //make axios call here.
 
-    axios.post('http://100.64.227.20:3000/api/text', {number:6479952837, location:"University of Toronto"}).then(function (response) {
-      console.log(response.data);
-      console.log(response.status);
-    })  .catch(function (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-        // http.ClientRequest in node.js
-        console.log(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log('Error', error.message);
-      }
-      console.log(error.config);
-    });
+    axios
+      .post("http://100.65.61.126:3000/api/text", {
+        number: 6476362359,
+        location: `University of Toronto, https://www.google.com/maps/search/?api=1&query=${43.660768},${-79.396563}`
+      })
+      .then(function(response) {
+        console.log(response.data);
+        console.log(response.status);
+      })
+      .catch(function(error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
   };
 
   render() {
